@@ -1,5 +1,7 @@
 const adminModel = require('../models/adminModel');
 const jwt = require('jsonwebtoken')
+
+
 exports.admin = async (req, res) => {
     try {
         const adminadd = new adminModel(req.body);
@@ -8,7 +10,7 @@ exports.admin = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "falied to update admin" });
+        res.status(500).json({ error: "falied to add admin" });
 
     }
 };
@@ -27,7 +29,7 @@ exports.adminlogin = async (req, res) => {
         const token = jwt.sign({
             email: login.email
         }, JWT_SECRET, { expiresIn: "1hr", });
-        res.status(200).json({login,tokenāā});
+        res.status(200).json({login,token});
     } catch (error) {
         console.log(error);
         res.status(500).json({ er: 'failed to login' })
