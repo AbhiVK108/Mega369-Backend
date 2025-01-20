@@ -2,9 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const env = require("dotenv");
 
-const routes=require("./admin/routes/adminRoutes")
+
 
 const adminroutes = require('./admin/routes/adminRoutes');
+const featuresroutes = require('./features/routes/routeFeature');
 
 const cors = require('cors')
 
@@ -23,4 +24,5 @@ mongoose
   .then(() => console.log("Db is connected Succesfully"))
   .catch((e) => console.log(e));
 
-app.use('/admin',adminroutes);
+app.use('/admin', adminroutes);
+app.use('/features', featuresroutes);

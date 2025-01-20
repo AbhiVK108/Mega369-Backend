@@ -1,5 +1,7 @@
 const adminModel = require('../models/adminModel');
 const jwt = require('jsonwebtoken')
+
+
 exports.admin = async (req, res) => {
     try {
         const adminadd = new adminModel(req.body);
@@ -8,7 +10,7 @@ exports.admin = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: "falied to update admin" });
+        res.status(500).json({ error: "falied to add admin" });
 
     }
 };
